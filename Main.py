@@ -48,7 +48,7 @@ def main(args, seed=None):
 
     logger.info('Generating Item Pool.')
 
-    generate_itempool(world)
+    generate_itempool(world, args.ban_gold_skulltulas)
 
     logger.info('Placing Dungeon Items.')
 

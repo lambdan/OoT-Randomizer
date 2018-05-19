@@ -23,7 +23,7 @@ tradeitems = ['Pocket Egg', 'Pocket Cucco', 'Cojiro', 'Odd Mushroom', 'Poachers 
 
 #total_items_to_place = 5
 
-def generate_itempool(world):
+def generate_itempool(world, ban_gold_skulltulas):
 
     for location in skulltulla_locations:
         world.push_item(location, ItemFactory('Gold Skulltulla Token'), False)
@@ -64,6 +64,18 @@ def generate_itempool(world):
     world.push_item('Ganons Castle Light Trial Clear', ItemFactory('Light Trial Clear'), False)
     world.get_location('Ganons Castle Light Trial Clear').event = True
 
+    if ban_gold_skulltulas is True:
+        world.push_item('10 Gold Skulltulla Reward', ItemFactory('Rupee (1)'), False)
+        world.get_location('10 Gold Skulltulla Reward').event = True
+        world.push_item('20 Gold Skulltulla Reward', ItemFactory('Rupees (5)'), False)
+        world.get_location('20 Gold Skulltulla Reward').event = True
+        world.push_item('30 Gold Skulltulla Reward', ItemFactory('Rupees (20)'), False)
+        world.get_location('30 Gold Skulltulla Reward').event = True
+        world.push_item('40 Gold Skulltulla Reward', ItemFactory('Rupees (50)'), False)
+        world.get_location('40 Gold Skulltulla Reward').event = True
+        world.push_item('50 Gold Skulltulla Reward', ItemFactory('Rupees (200)'), False)
+        world.get_location('50 Gold Skulltulla Reward').event = True
+	
     # set up item pool
     (pool, placed_items) = get_pool_core(world.place_dungeon_items)
     world.itempool = ItemFactory(pool)
